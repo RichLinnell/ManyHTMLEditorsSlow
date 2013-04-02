@@ -1,0 +1,63 @@
+﻿@using System.Globalization
+@using System.Threading
+@Html.DevExpress().HtmlEditor(sett =>
+        {
+            sett.Name = Model;
+            sett.CallbackRouteValues = new { Controller = "HtmlTextEdit", Action = "HtmlTextEdit", name=Model };
+
+            sett.Settings.AllowDesignView = true;
+            sett.Settings.AllowHtmlView = false;
+            sett.Settings.AllowPreview = false;
+            sett.Html = Model;
+
+            sett.Toolbars.Add(toolbar =>
+                {
+                    toolbar.Items.Add(new ToolbarUndoButton());
+                    toolbar.Items.Add(new ToolbarRedoButton());
+                    toolbar.Items.Add(new ToolbarRemoveFormatButton(true));
+                    toolbar.Items.Add(new ToolbarSuperscriptButton(true));
+                    toolbar.Items.Add(new ToolbarSubscriptButton(false));
+                    toolbar.Items.Add(new ToolbarInsertOrderedListButton(true));
+                    toolbar.Items.Add(new ToolbarInsertUnorderedListButton(false));
+                    toolbar.Items.Add(new ToolbarIndentButton(true));
+                    toolbar.Items.Add(new ToolbarOutdentButton(false));
+                    toolbar.Items.Add(new ToolbarInsertLinkDialogButton(true));
+                    
+                    
+                    toolbar.Items.Add(new ToolbarInsertTableDialogButton(true));
+                    toolbar.Items.Add(new ToolbarFullscreenButton(true));
+                    toolbar.Items.Add(new ToolbarCheckSpellingButton(false));
+                });
+            sett.Toolbars.Add(toolbar =>
+                {
+                    ToolbarParagraphFormattingEdit paraEdit = new ToolbarParagraphFormattingEdit(false);
+                    paraEdit.CreateDefaultItems();
+                    toolbar.Items.Add(paraEdit);
+                    ToolbarFontNameEdit nameEdit = new ToolbarFontNameEdit(false);
+                    nameEdit.CreateDefaultItems();
+                    toolbar.Items.Add(nameEdit);
+                    ToolbarFontSizeEdit fontSize = new ToolbarFontSizeEdit(false);
+                    fontSize.CreateDefaultItems();
+                    toolbar.Items.Add(fontSize);
+                    toolbar.Items.Add(new ToolbarBoldButton(true));
+                    toolbar.Items.Add(new ToolbarItalicButton());
+                    toolbar.Items.Add(new ToolbarUnderlineButton());
+                    toolbar.Items.Add(new ToolbarStrikethroughButton());
+                    toolbar.Items.Add(new ToolbarJustifyLeftButton(true));
+                    toolbar.Items.Add(new ToolbarJustifyCenterButton());
+                    toolbar.Items.Add(new ToolbarJustifyRightButton());
+                    toolbar.Items.Add(new ToolbarJustifyFullButton());
+                    toolbar.Items.Add(new ToolbarJustifyFullButton());
+                    toolbar.Items.Add(new ToolbarBackColorButton(true));
+                    toolbar.Items.Add(new ToolbarFontColorButton(false));
+                });
+
+            sett.CustomDialogs.Add(dialog =>
+            {
+                dialog.Name = "PasteImage";
+                dialog.Caption = "Insert Image";
+                dialog.FormAction = "HtmlEditPasteCollector";
+                dialog.OkButtonVisible = false;
+                dialog.CancelButtonVisible = false;
+            });
+        }).GetHtml()

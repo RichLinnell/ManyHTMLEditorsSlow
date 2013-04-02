@@ -1,0 +1,5 @@
+C:\GITHub Tests\ManyHTMLEditorsSlow\ManyHTMLEditorsSlow\bin\ManyHTMLEditorsSlow.dll
+C:\GITHub Tests\ManyHTMLEditorsSlow\ManyHTMLEditorsSlow\bin\ManyHTMLEditorsSlow.pdb
+C:\GITHub Tests\ManyHTMLEditorsSlow\ManyHTMLEditorsSlow\obj\Debug\ResolveAssemblyReference.cache
+C:\GITHub Tests\ManyHTMLEditorsSlow\ManyHTMLEditorsSlow\obj\Debug\ManyHTMLEditorsSlow.dll
+C:\GITHub Tests\ManyHTMLEditorsSlow\ManyHTMLEditorsSlow\obj\Debug\ManyHTMLEditorsSlow.pdb
